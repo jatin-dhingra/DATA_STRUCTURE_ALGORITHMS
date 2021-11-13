@@ -15,7 +15,7 @@ boolean isloop(int arr,int n)
     }
     else
     {
-      return NULL;
+      s= NULL;
     }
   }(while(p!=NULL && q!=NULL));
   if(p==q)
