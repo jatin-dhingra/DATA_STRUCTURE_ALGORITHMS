@@ -2,11 +2,10 @@
 using namespace std;
 struct Node
 {
-    int data;
-    struct node* left;
-    struct node* right;
+  int data{};
+  struct Node* left;
+  struct Node* right;
 };
-
 
 struct Node* newnode(int data)
 {
@@ -19,7 +18,7 @@ struct Node* newnode(int data)
 
 void inorder_traversal(node* root)
 {
-  vector<Node*>v;
+  vector<int>v;
   stack<int>st;
   node* node=root;
   while(true)
@@ -30,7 +29,8 @@ void inorder_traversal(node* root)
       node=node->left;
     }
     else{
-      if(st.empty() ==true )break;
+      if(st.empty() ==true )
+        break;
       node=st.top();
       st.pop();
       v.push_back(node->data)
