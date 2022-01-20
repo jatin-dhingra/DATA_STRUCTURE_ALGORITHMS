@@ -31,7 +31,7 @@
    // {
    //   check=1;
    //   cout<<p->data<<" ";
-   //   p=p->next;
+   //   display(p->next);
    // }
    do{
      cout<<p->data<<" ";
