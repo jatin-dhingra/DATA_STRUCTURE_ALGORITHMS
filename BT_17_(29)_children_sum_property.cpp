@@ -16,7 +16,7 @@ struct Node* newnode(int data)
   return (Node);
 }
 
-void preorder(TreeNode* node,vector<int>ans)
+void preorder(TreeNode* node,vector<int>&ans)
 {
   if(node==NULL){
     return;
@@ -55,8 +55,8 @@ int children(TreeNode* root)
       root->right->data=root->data;
     }
   }
-  children(root->left);
-  children(root->right);
+  preorder(root->left);
+  preorder(root->right);
   int total{};
   if(root->left)
   {
