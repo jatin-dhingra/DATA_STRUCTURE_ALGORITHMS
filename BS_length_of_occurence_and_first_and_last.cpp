@@ -53,8 +53,5 @@ int main()
   int first=bs(arr,s,l,target);
   int end=bse(arr,s,l,target);
   cout<<end-first+1<<endl;
-  //
-
-
-
+ 
 }
