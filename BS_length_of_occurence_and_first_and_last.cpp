@@ -2,7 +2,7 @@
 using namespace std;
 int bs(int arr[],int s,int l,int target)
 {
-  int f{};
+  int f=0;
   while(s<=l)
   {
     int mid=s+(l-s)/2;
