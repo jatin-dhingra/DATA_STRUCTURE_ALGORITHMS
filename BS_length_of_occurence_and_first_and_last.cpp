@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 int bs(int arr[],int s,int l,int target)
 {
