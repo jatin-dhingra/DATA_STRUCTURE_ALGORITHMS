@@ -1,5 +1,5 @@
 
-class NumStrMinComparator
+class compare
 {
 public:
     bool operator() (string &b, string &a) { 
@@ -15,7 +15,7 @@ public:
     string kthLargestNumber(vector<string>& nums, int k) 
     {
         
-         priority_queue<string, vector<string>, NumStrMinComparator>h;
+         priority_queue<string, vector<string>, compare>h;
         for(string& i:nums)
         {
             h.push(i);
