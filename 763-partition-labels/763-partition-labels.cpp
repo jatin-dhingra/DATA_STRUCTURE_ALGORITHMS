@@ -1,24 +1,37 @@
 class Solution {
 public:
+    
+    int max(int a,int b)
+    {
+        if(a>b)
+        {
+            return a;
+        }
+        else
+        {
+            return b;
+        }
+    }
     vector<int> partitionLabels(string s) 
     {
-        unordered_map<char,int>mp;
-        
-        for(int i = 0; i < s.size(); i++){
-            char ch = s[i];
-            mp[ch] = i;
+        vector<int>v(26);
+        vector<int>ans;
+        for(int i{};i<s.size();i++)
+        {
+            v[s[i]-'a']=i;
+            
         }
-        vector<int> res;
-        int prev = -1;
-        int maxi = 0;
-        for(int i = 0; i < s.size(); i++){
-            maxi = max(maxi, mp[s[i]]);
-            if(maxi == i){
-                res.push_back(maxi - prev);
-                prev = maxi;
+        int st{},end{};
+        for(int i{};i<s.size();i++)
+        {
+            end=max(end,v[s[i]-'a']);
+            if(i==end)
+            {
+                ans.push_back(end-st+1);
+                st=end+1;
             }
         }
-        return res;
+        return ans;
         
        
         
