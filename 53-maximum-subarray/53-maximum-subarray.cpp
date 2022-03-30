@@ -2,16 +2,19 @@ class Solution {
 public:
     int maxSubArray(vector<int>& nums) 
     {
-        int ans{};
-        int maxx=INT_MIN;
+        int global=INT_MIN;
+        int local{};
+        int curr{};
+        
         for(auto i:nums)
         {
-            ans+=i;
-            maxx=max(maxx,ans);
-            ans=max(ans,0);
-            
+            local=max(i,local+i);
+            if(global<local)
+            {
+                global=local;
+            }
         }
-        return maxx;
+        return global;
         
     }
 };
