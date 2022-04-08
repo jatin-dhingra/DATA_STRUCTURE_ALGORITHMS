@@ -25,6 +25,6 @@ public:
             
         }
         
-        return (p.size()==0?0:p.top());
+        return 0;
     }
 };
