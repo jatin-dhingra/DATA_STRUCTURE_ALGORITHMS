@@ -1,9 +1,7 @@
 class Solution {
 public:
     vector<int> topKFrequent(vector<int>& nums, int k)
-    {
-        map<int,int>m;
-        int n=nums.size();
+    {   map<int,int>m;
         vector<int>ans;
         priority_queue<pair<int,int>>p;
         for(auto &i:nums)
