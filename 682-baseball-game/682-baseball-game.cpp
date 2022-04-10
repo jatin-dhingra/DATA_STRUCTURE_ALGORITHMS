@@ -4,7 +4,7 @@ public:
     {
         stack<int>st;
         int n=ops.size();
-        vector<int>v;
+        int ans{};
         for(int i{};i<n;i++)
         {
             if(ops[i]=="+"){
@@ -23,7 +23,7 @@ public:
             else
                 st.push(stoi(ops[i])); 
         }
-        int ans{};
+        
         while(!st.empty())
         {
             cout<<st.top()<<" ";
