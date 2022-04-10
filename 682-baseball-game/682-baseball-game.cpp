@@ -13,15 +13,18 @@ public:
                 st.push(num1);
                 st.push(num1+num2);
             }
-            
-            else if(ops[i]=="D")
-                st.push(st.top()*2);
-            
-            else if(ops[i]=="C")
+            else if(ops[i]=="C"){
                 st.pop();
+            }
+            else if(ops[i]=="D")
+            {
+                int val=st.top();
+                st.push(val*2);
+            }
             
-            else
+            else{
                 st.push(stoi(ops[i])); 
+            }
         }
         
         while(!st.empty())
