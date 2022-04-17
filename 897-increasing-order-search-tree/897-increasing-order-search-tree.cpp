@@ -11,21 +11,32 @@
  */
 class Solution {
 public:
-    TreeNode * inorder(TreeNode *root,TreeNode *tmp)
+    
+    void dfs(TreeNode* root,vector<int>&v)
     {
-        if(root==NULL) return tmp;
-        tmp=inorder(root->left,tmp);
-        tmp->right=root;
-        root->left=NULL;
-        tmp=root;
-        return inorder(root->right,tmp);
+        if(root==NULL)
+        {
+            return;
+        }
+        dfs(root->left,v);
+        v.push_back(root->val);
+        dfs(root->right,v);
     }
+    
     
     TreeNode* increasingBST(TreeNode* root) 
     {
-        TreeNode* dummy=new TreeNode(0);
-        TreeNode* tmp=dummy;
-        inorder(root,tmp);
-        return dummy->right;
+        
+        vector<int>v;
+        dfs(root,v);
+        TreeNode* node=new TreeNode(0),*change=node;
+        
+        for(int i{0};i<v.size();i++)
+        {
+            change->right=new TreeNode(v[i]);
+            change=change->right;
+        }
+        return node->right;
+                    
     }
 };
