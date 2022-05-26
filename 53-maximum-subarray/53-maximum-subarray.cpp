@@ -1,20 +1,17 @@
 class Solution {
 public:
-    int maxSubArray(vector<int>& nums) 
+    int maxSubArray(vector<int>& nums)
     {
-        int global=INT_MIN;
-        int local{};
-        int curr{};
-        
-        for(auto i:nums)
+        int sum{};
+        int ans{INT_MIN};
+        for(int i:nums)
         {
-            local=max(i,local+i);
-            if(global<local)
-            {
-                global=local;
-            }
+            sum+=i;
+            ans=max(sum,ans);
+            sum=max(sum,0);
+            
         }
-        return global;
+        return ans;
         
     }
 };
