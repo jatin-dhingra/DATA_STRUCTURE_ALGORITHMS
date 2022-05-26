@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int hammingWeight(uint32_t n)
+    int hammingWeight(uint32_t n) 
     {
         int count{};
         while(n)
@@ -9,7 +9,6 @@ public:
             count++;
         }
         return count;
-        
         
     }
 };
