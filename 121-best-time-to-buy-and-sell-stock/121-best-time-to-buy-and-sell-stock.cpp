@@ -3,7 +3,7 @@ public:
     int maxProfit(vector<int>& prices)
     {
         int buy{INT_MAX};
-        int sell{INT_MIN};
+        int sell{};
         int ans{};
         int n=prices.size();
         for(int i{};i<n;i++)
