@@ -4,9 +4,11 @@ public:
     {
         int n=matrix.size();
         int m=matrix[0].size();
-        int i=0;
+        
+        int i{};
         int j=m-1;
-        while(i>=0 && i<n && j>=0 && j<m)
+        
+        while(i>=0 && i<=n-1 && j>=0 && j<=m-1)
         {
             if(matrix[i][j]==target)
             {
