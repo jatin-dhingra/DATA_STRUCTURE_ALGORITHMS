@@ -11,10 +11,8 @@ class Solution
     vector<long long> nextLargerElement(vector<long long> arr, int n){
         // Your code here
         vector<long long>v;
-        stack<long long>st;
-       
-        
-        for(long long i=n-1;i>=0;i--)
+        stack<long long >st;
+        for(int i{n-1};i>=0;i--)
         {
             if(st.empty())
             {
@@ -24,9 +22,9 @@ class Solution
             {
                 v.push_back(st.top());
             }
-            else if(!st.empty()&& st.top()<=arr[i])
+            else if(!st.empty() && st.top()<=arr[i])
             {
-                while(!st.empty()&& st.top()<=arr[i])
+                while(!st.empty() && st.top()<=arr[i])
                 {
                     st.pop();
                 }
