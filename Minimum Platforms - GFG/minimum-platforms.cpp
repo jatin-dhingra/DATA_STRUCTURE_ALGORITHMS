@@ -15,24 +15,25 @@ class Solution{
     	// Your code here
     	sort(arr,arr+n);
     	sort(dep,dep+n);
-    	int platform{};
-    	int ans{1};
     	int ind=1;
     	int end=0;
-    	int count{1};
+    	int ans{};
+    	int platform{1};
     	while(ind<n && end<n)
     	{
     	    if(arr[ind]<=dep[end])
     	    {
-    	        count++;
+    	        platform++;
+    	        ind++;
     	    }
-    	    else
+    	    else if(arr[ind]>dep[end])
     	    {
+    	        platform--;
     	        end++;
     	    }
-    	    ind++;
+    	    ans=max(ans,platform);
     	}
-    	return count;
+    	return ans;
     }
 };
 
