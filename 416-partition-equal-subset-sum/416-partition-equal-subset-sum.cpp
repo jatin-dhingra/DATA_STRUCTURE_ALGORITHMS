@@ -1,18 +1,11 @@
 class Solution {
 public:
-    bool canPartition(vector<int>& nums)
+    bool subset(vector<int>&nums,int sum)
     {
-        int sum=accumulate(nums.begin(),nums.end(),0);
         int n=nums.size();
-        if(sum%2!=0)
-        {
-            return 0;
-        }
-        sum/=2;
         int dp[n+1][sum+1];
-        for(int i{};i<=n;i++)
-        {
-            for(int j{};j<=sum;j++)
+        for(int i{};i<n+1;i++){
+            for(int j{};j<sum+1;j++)
             {
                 if(i==0)
                 {
@@ -28,21 +21,34 @@ public:
                 }
             }
         }
-        for(int i{1};i<=n;i++)
+        for(int i{1};i<n+1;i++)
         {
-            for(int j{1};j<=sum;j++)
+            for(int j{1};j<sum+1;j++)
             {
                 if(nums[i-1]<=j)
                 {
-                    dp[i][j]=(dp[i-1][j]|| dp[i-1][j-nums[i-1]]);
+                    dp[i][j]=dp[i-1][j-nums[i-1]]|| dp[i-1][j];
                 }
-                else if(nums[i-1]>j)
+                else
                 {
                     dp[i][j]=dp[i-1][j];
                 }
+
             }
         }
         return dp[n][sum];
+    }
+    
+    bool canPartition(vector<int>& nums) 
+    {
+        int sum=accumulate(nums.begin(),nums.end(),0);
+        if(sum&1)
+        {
+            return false;
+        }
+        
+        return subset(nums,sum/2);
+        
         
     }
 };
