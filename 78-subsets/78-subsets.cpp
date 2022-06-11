@@ -7,11 +7,12 @@ public:
             ans.push_back(sub);
             return;
         }
-        func(ans,sub,nums,ind+1);
         
         sub.push_back(nums[ind]);
         func(ans,sub,nums,ind+1);
         sub.pop_back();
+        func(ans,sub,nums,ind+1);
+        
     }
     vector<vector<int>> subsets(vector<int>& nums) 
     {
