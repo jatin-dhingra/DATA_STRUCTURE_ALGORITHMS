@@ -7,28 +7,24 @@ class Solution
 {
 public:
     
-    void recur(vector<int>&arr, int N,vector<int>&ans,int ind,int summ)
+    void solve(vector<int>&ans,vector<int>&arr,int N,int i,int summ)
     {
-        if(ind==N)
+        if(i==N)
         {
             ans.push_back(summ);
             return;
         }
-        recur(arr,N,ans,ind+1,summ+arr[ind]);
-        recur(arr,N,ans,ind+1,summ);
-        
-        
+        solve(ans,arr,N,i+1,summ+arr[i]);
+        solve(ans,arr,N,i+1,summ);
     }
-    
+
     vector<int> subsetSums(vector<int> arr, int N)
     {
         // Write Your Code here
-        int ind=0;
         vector<int>ans;
         int summ{};
-        
-        recur(arr,N,ans,ind,summ);
-        sort(ans.begin(),ans.end());
+        sort(arr.begin(),arr.end());
+        solve(ans,arr,N,0,summ);
         return ans;
     }
 };
