@@ -8,19 +8,22 @@ class Solution
 {
     public:
     //Function to find the next greater element for each element of the array.
-    vector<long long> nextLargerElement(vector<long long> arr, int n){
+    vector<long long> nextLargerElement(vector<long long> arr, int n)
+    {
         // Your code here
-        vector<long long>v;
+        
+        vector<long long >ans;
         stack<long long >st;
         for(int i{n-1};i>=0;i--)
         {
             if(st.empty())
             {
-                v.push_back((long long)-1);
+                ans.push_back((long long)-1);
             }
             else if(!st.empty() && st.top()>arr[i])
             {
-                v.push_back(st.top());
+                ans.push_back(st.top());
+               
             }
             else if(!st.empty() && st.top()<=arr[i])
             {
@@ -30,17 +33,18 @@ class Solution
                 }
                 if(st.empty())
                 {
-                    v.push_back((long long)-1);
+                    ans.push_back((long long )-1);
                 }
                 else
                 {
-                    v.push_back(st.top());
+                    ans.push_back(st.top());
+                  
                 }
             }
             st.push(arr[i]);
         }
-        reverse(v.begin(),v.end());
-        return v;
+        reverse(ans.begin(),ans.end());
+        return ans;
     }
 };
 
