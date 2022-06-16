@@ -1,13 +1,13 @@
 class Solution {
 public:
-    int singleNumber(vector<int>& nums) 
+    int singleNumber(vector<int>& nums)
     {
-        int x{};
-        for(int i:nums)
+        int ans{};
+        for(auto i:nums)
         {
-            x^=i;
+            ans^=i;
         }
-        return x;
+        return ans;
         
     }
 };
