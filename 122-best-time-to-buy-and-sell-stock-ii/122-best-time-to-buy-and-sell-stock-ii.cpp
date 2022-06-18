@@ -4,12 +4,14 @@ public:
     {
         int ans{};
         int n=prices.size();
-        
-        for(int i{};i<n-1;i++)
+        for(int i{1};i<n;i++)
         {
-            ans+=max(prices[i+1]-prices[i],0);
-            
+            if(prices[i]>prices[i-1])
+            {
+                ans+=prices[i]-prices[i-1];
+            }
         }
+        
         return ans;
     }
 };
