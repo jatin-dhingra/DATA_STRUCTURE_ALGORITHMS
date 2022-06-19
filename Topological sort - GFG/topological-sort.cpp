@@ -6,37 +6,47 @@ using namespace std;
 class Solution
 {
 	public:
-	
-	void DFS(int node,vector<int>&vis,vector<int>adj[],stack<int>&st)
-	{
-	    vis[node]=1;
-	    for(auto it:adj[node])
-	    {
-	        if(!vis[it])
-	        {
-	            DFS(it,vis,adj,st);
-	        }
-	    }
-	    st.push(node);
-	}
 	//Function to return list containing vertices in Topological order. 
 	vector<int> topoSort(int V, vector<int> adj[]) 
 	{
+	    //indegree of allnodes!
+	    // use the queue DS
+	    // and a storing vector nd now simply apply BFS and keep on decreasing the indegree
+	    
 	    // code here
 	    vector<int>vis(V,0);
-	    vector<int>ans;
-	    stack<int>st;
 	    for(int i{};i<V;i++)
 	    {
-	        if(!vis[i])
+	        for(auto it:adj[i])
 	        {
-	            DFS(i,vis,adj,st);
+	            vis[it]++;
 	        }
 	    }
-	    while(!st.empty())
+	    
+	    queue<int>q;
+	    vector<int>ans;
+	    
+	    for(int i{};i<V;i++)
 	    {
-	        ans.push_back(st.top());
-	        st.pop();
+	        if(vis[i]==0)
+	        {
+	            q.push(i);
+	        }
+	    }
+	    
+	    while(!q.empty())
+	    {
+	        int node=q.front();
+	        q.pop();
+	        ans.push_back(node);
+	        for(auto it:adj[node])
+	        {
+	            vis[it]--;
+	            if(vis[it]==0)
+	            {
+	                q.push(it);
+	            }
+	        }
 	    }
 	    return ans;
 	}
