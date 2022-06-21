@@ -1,11 +1,11 @@
 class Solution {
 public:
-    int minDistance(string word1, string word2) 
+    int minDistance(string s, string t) 
     {
-        int n=word1.size();
-        int m=word2.size();
+        int n=s.size();
+        int m=t.size();
         int dp[n+1][m+1];
-       
+        memset(dp,-1,sizeof(dp));
         for(int i{};i<n+1;i++)
         {
             for(int j{};j<m+1;j++)
@@ -13,17 +13,16 @@ public:
                 if(i==0 || j==0)
                 {
                     dp[i][j]=0;
-                    
                 }
-                
             }
         }
-        for(int i{1};i<n+1;i++){
+        for(int i{1};i<n+1;i++)
+        {
             for(int j{1};j<m+1;j++)
             {
-                if(word1[i-1]==word2[j-1])
+                if(s[i-1]==t[j-1])
                 {
-                    dp[i][j]=(dp[i-1][j-1]+1);
+                    dp[i][j]=1+dp[i-1][j-1];
                 }
                 else
                 {
@@ -31,10 +30,11 @@ public:
                 }
             }
         }
-        int ans=dp[n][m];
+        int lcs=dp[n][m];
        
-        return m+n-2*ans;
+        int val1=n-lcs;
+        int val2=m-lcs;
+        return val1+val2;
         
-       
     }
 };
