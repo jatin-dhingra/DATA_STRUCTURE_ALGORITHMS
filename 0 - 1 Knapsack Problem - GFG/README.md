@@ -6,22 +6,22 @@ In other words, given two integer arrays <strong>val[0..N-1]</strong> and <stron
 
 <p><strong><span style="font-size:18px">Example 1:</span></strong></p>
 
-<pre><strong><span style="font-size:18px">Input:
+<pre style="position: relative;"><strong><span style="font-size:18px">Input:
 </span></strong><span style="font-size:18px">N = 3
 W = 4
 values[] = {1,2,3}
 weight[] = {4,5,1}
 <strong>Output: </strong>3</span>
-</pre>
+<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
 
 <p><strong><span style="font-size:18px">Example 2:</span></strong></p>
 
-<pre><strong><span style="font-size:18px">Input:
+<pre style="position: relative;"><strong><span style="font-size:18px">Input:
 </span></strong><span style="font-size:18px">N = 3
 W = 3
 values[] = {1,2,3}
 weight[] = {4,5,6}
-<strong>Output: </strong>0</span></pre>
+<strong>Output: </strong>0</span><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
 
 <p><span style="font-size:18px"><strong>Your Task:</strong><br>
 Complete the function&nbsp;<strong>knapSack()</strong>&nbsp;which takes maximum capacity W, weight array wt[], value array val[], and the number of items n as a parameter and returns the&nbsp;<strong>maximum possible</strong>&nbsp;value you can get.</span></p>
