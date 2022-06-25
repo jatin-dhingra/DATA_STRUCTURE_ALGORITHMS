@@ -11,27 +11,27 @@
 <p>&nbsp;</p>
 <p><strong>Example 1:</strong></p>
 
-<pre style="position: relative;"><strong>Input:</strong> target = [9,3,5]
+<pre><strong>Input:</strong> target = [9,3,5]
 <strong>Output:</strong> true
 <strong>Explanation:</strong> Start with arr = [1, 1, 1] 
 [1, 1, 1], sum = 3 choose index 1
 [1, 3, 1], sum = 5 choose index 2
 [1, 3, 5], sum = 9 choose index 0
 [9, 3, 5] Done
-<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+</pre>
 
 <p><strong>Example 2:</strong></p>
 
-<pre style="position: relative;"><strong>Input:</strong> target = [1,1,1,2]
+<pre><strong>Input:</strong> target = [1,1,1,2]
 <strong>Output:</strong> false
 <strong>Explanation:</strong> Impossible to create target array from [1,1,1,1].
-<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+</pre>
 
 <p><strong>Example 3:</strong></p>
 
-<pre style="position: relative;"><strong>Input:</strong> target = [8,5]
+<pre><strong>Input:</strong> target = [8,5]
 <strong>Output:</strong> true
-<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+</pre>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
