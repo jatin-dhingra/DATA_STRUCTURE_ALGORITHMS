@@ -1,32 +1,32 @@
 class Solution {
 public:
-    vector<vector<int>> merge(vector<vector<int>>& inter) 
+    vector<vector<int>> merge(vector<vector<int>>& nums) 
     {
-        
+        int n=nums.size();
         vector<vector<int>>ans;
-        if(inter.size()==0)
+        sort(nums.begin(),nums.end());
+        if(nums.size()==0)
         {
             return ans;
-            
         }
+        vector<int>v=nums[0];
         
-        sort(inter.begin(),inter.end());
-        vector<int>vec=inter[0];
-        
-        for(vector<int> i:inter)
+        for(auto i:nums)
         {
-            if(i[0]<=vec[1])
+            if(i[0]<=v[1])
             {
-                vec[1]=max(i[1],vec[1]);
+                v[1]=max(v[1],i[1]);
             }
             else
             {
-                ans.push_back(vec);
-                vec=i;
+                ans.push_back(v);
+                v=i;
             }
         }
-        ans.push_back(vec);
+        ans.push_back(v);
+        
         return ans;
+        
+        
     }
-    
 };
