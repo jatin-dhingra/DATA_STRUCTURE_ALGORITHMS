@@ -14,19 +14,19 @@ public:
     bool isValidBST(TreeNode* root) 
     {
         return check(LLONG_MIN,LLONG_MAX,root);
+        
+    
     }
-    bool check(long long a,long long b,TreeNode* node)
+    bool check(long long a, long long b,TreeNode* node)
     {
         if(node==NULL)
         {
             return true;
         }
-        if(node->val<=a || node->val>=b)
+        if(node->val>=b || node->val<=a)
         {
             return false;
         }
         return check(a,node->val,node->left)&& check(node->val,b,node->right);
-            
-        
     }
 };
