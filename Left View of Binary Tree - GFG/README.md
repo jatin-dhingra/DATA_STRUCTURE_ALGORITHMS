@@ -15,25 +15,25 @@
 
 <p><span style="font-size:18px"><strong>Example 1:</strong></span></p>
 
-<pre><span style="font-size:18px"><strong>Input:
+<pre style="position: relative;"><span style="font-size:18px"><strong>Input:
 </strong>&nbsp;  1
 &nbsp;/&nbsp; \
 3&nbsp; &nbsp; 2
 <strong>Output: </strong>1 3<strong>
 </strong></span>
-</pre>
+<div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
 
 <p><span style="font-size:18px"><strong>Example 2:</strong></span></p>
 
-<pre><span style="font-size:18px"><strong>Input:
+<pre style="position: relative;"><span style="font-size:18px"><strong>Input:
 </strong><img alt="" src="https://media.geeksforgeeks.org/wp-content/cdn-uploads/20190221103723/leftview.jpg" style="height:272px; width:285px" class="img-responsive">
 <strong>Output: </strong>10 20 40
-</span></pre>
+</span><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
 
 <p><span style="font-size:18px"><strong>Your Task:</strong><br>
 You just have to <strong>complete </strong>the function <strong>leftView() </strong>that returns an array containing the nodes that are in&nbsp;the left view. The newline is automatically appended by the driver code.</span><br>
 <span style="font-size:18px"><strong>Expected Time Complexity:&nbsp;</strong>O(N).<br>
-<strong>Expected Auxiliary Space:&nbsp;</strong>O(Height of the Tree).</span></p>
+<strong>Expected Auxiliary Space:&nbsp;</strong>O(N).</span></p>
 
 <p><span style="font-size:18px"><strong>Constraints:</strong><br>
 0 &lt;= Number of nodes &lt;= 100<br>
