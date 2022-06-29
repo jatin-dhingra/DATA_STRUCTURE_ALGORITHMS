@@ -1,23 +1,22 @@
 class Solution {
 public:
-    int minDeletions(string s) 
+    int minDeletions(string s)
     {
-        
         map<char,int>m;
         for(char c:s)
         {
             m[c]++;
         }
-
-        set<int>st;
+        
         int count{};
-        vector<pair<int,char>>vp;
+        set<char>st;
+       
         for(auto i:m)
         {
-           if(st.find(i.second)==st.end())
-           {
-               st.insert(i.second);
-           }
+            if(st.find(i.second)==st.end())
+            {
+                st.insert(i.second);
+            }
             else
             {
                 while(st.find(i.second)!=st.end() && i.second!=0)
@@ -32,10 +31,6 @@ public:
             }
         }
         return count;
-        
-        
-        
-        
         
     }
 };
