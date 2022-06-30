@@ -6,7 +6,8 @@ using namespace std;
 class Solution {
   public:
     // Function to detect cycle in a directed graph.
-    bool cycle(vector<int>&vis,vector<int>&dfsvis,int V,vector<int>adj[],int node)
+    
+    bool DFS(vector<int>adj[],vector<int>&vis,vector<int>&dfsvis,int node)
     {
         vis[node]=1;
         dfsvis[node]=1;
@@ -14,17 +15,15 @@ class Solution {
         {
             if(!vis[it])
             {
-                if(cycle(vis,dfsvis,V,adj,it))
+                if(DFS(adj,vis,dfsvis,it))
                 {
                     return true;
-                    
                 }
             }
-                else if(dfsvis[it])
+            else if(dfsvis[it])
             {
                 return true;
             }
-            
         }
         dfsvis[node]=0;
         return false;
@@ -32,12 +31,14 @@ class Solution {
     
     bool isCyclic(int V, vector<int> adj[]) {
         // code here
-        vector<int>vis(V,0),dfsvis(V,0);
+        
+        vector<int>vis(V,0);
+        vector<int>dfsvis(V,0);
         for(int i{};i<V;i++)
         {
             if(!vis[i])
             {
-                if(cycle(vis,dfsvis,V,adj,i))
+                if(DFS(adj,vis,dfsvis,i))
                 {
                     return true;
                 }
