@@ -16,14 +16,19 @@ public:
         {
             return NULL;
         }
-        ListNode* one=head;
-        ListNode* two=head;
-        while(one!=NULL && one->next!=NULL)
+        if(head->next==NULL)
         {
-            one=one->next->next;
-            two=two->next;
+            return head;
         }
-        return two;
+        ListNode* slow=head->next;
+        ListNode* fast=head->next->next;
+        while(fast!=NULL && fast->next!=NULL)
+        {
+            slow=slow->next;
+            fast=fast->next->next;
+        }
         
+        
+        return slow;
     }
 };
