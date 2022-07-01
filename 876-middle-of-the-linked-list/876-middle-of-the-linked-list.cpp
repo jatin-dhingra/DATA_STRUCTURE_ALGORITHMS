@@ -20,8 +20,8 @@ public:
         {
             return head;
         }
-        ListNode* slow=head->next;
-        ListNode* fast=head->next->next;
+        ListNode* slow=head;
+        ListNode* fast=head;
         while(fast!=NULL && fast->next!=NULL)
         {
             slow=slow->next;
