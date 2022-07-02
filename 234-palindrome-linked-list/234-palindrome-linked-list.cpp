@@ -10,50 +10,33 @@
  */
 class Solution {
 public:
-    
-    ListNode* reverse(ListNode* head)
+    bool ispalin(string s)
     {
-        ListNode* start= NULL;
-        while(head!=NULL)
+        int n=s.size();
+        for(int i{};i<n/2;i++)
         {
-            ListNode* newhead=head->next;
-            head->next=start;
-            start=head;
-            head=newhead;
-        }
-        return start;
-        
-    }
-    
-    bool isPalindrome(ListNode* head) 
-    {
-        if(!head || head->next==NULL)
-        {
-            return true;
-        }
-        
-        ListNode* slow=head;
-        ListNode* fast=head;
-        while(fast->next!=NULL &&  fast->next->next!=NULL)
-        {
-            slow=slow->next;
-            fast=fast->next->next;
-        }
-        ListNode* midnode=slow;
-        
-        slow->next=reverse(slow->next);
-        slow=slow->next;
-        ListNode* dum=head;
-        while(slow!=NULL)
-        {
-            if(slow->val!=dum->val)
+            if(s[i]!=s[n-i-1])
             {
                 return false;
             }
-            dum=dum->next;
-            slow=slow->next;
         }
         return true;
+    }
+    bool isPalindrome(ListNode* head) 
+    {
+        ListNode* dum=head;
+        string s{};
+        if(head==NULL)
+        {
+            return true;
+        }
+        while(dum)
+        {
+            s+=(to_string(dum->val));
+            dum=dum->next;
+        }
+        
+        return ispalin(s);
         
     }
 };
