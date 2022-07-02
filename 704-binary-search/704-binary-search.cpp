@@ -1,13 +1,14 @@
 class Solution {
 public:
-    int search(vector<int>& nums, int target)
+    int search(vector<int>& nums, int target) 
     {
-        int n=nums.size();
         int s=0;
-        int e=n-1;
+        int e=nums.size()-1;
+        int n=nums.size();
+        
         while(s<=e)
         {
-            int mid=(s+e)/2;
+            int mid=s+(e-s)/2;
             if(nums[mid]==target)
             {
                 return mid;
