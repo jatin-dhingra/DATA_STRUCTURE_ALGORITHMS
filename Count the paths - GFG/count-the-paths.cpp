@@ -5,31 +5,33 @@ using namespace std;
  // } Driver Code Ends
 class Solution {
 public:
-    
-    int DFS(vector<int>adj[],int n,int s,int d,int &ans)
-    {
-        if(s==d)
-        {
-            ans++;
-        }
-        for(auto it:adj[s])
-        {
-            DFS(adj,n,it,d,ans);
-        }
-        
-    }
-
-	int possible_paths(vector<vector<int>>edges, int n, int s, int d){
+	int possible_paths(vector<vector<int>>edges, int n, int s, int d)
+	{
+	    
 	    // Code here
 	    vector<int>adj[n+1];
 	    for(auto i:edges)
 	    {
 	        adj[i[0]].push_back(i[1]);
 	    }
-	    int ans{};
-	    DFS(adj,n,s,d,ans);
-	    return ans;
-	    
+	    queue<int>q;
+	    q.push(s);
+	    int count{};
+	    while(!q.empty())
+	    {
+	        int node=q.front();
+	        q.pop();
+	        if(node==d)
+	        {
+	            count++;
+	            
+	        }
+	        for(auto it:adj[node])
+	        {
+	            q.push(it);
+	        }
+	    }
+	    return count;
 	}
 };
 
