@@ -13,12 +13,14 @@ class Solution{
     // l : starting index of the array i.e 0
     // r : ending index of the array i.e size-1
     // k : find kth smallest element and return using this function
-    int kthSmallest(int arr[], int l, int r, int k) 
+    int kthSmallest(int arr[], int l, int r, int k)
     {
-        //code here
+        
+                //code here
+                
         priority_queue<int>pq;
-        int n=r+1;
-        for(int i{};i<n;i++)
+        int n=r;
+        for(int i{};i<n+1;i++)
         {
             pq.push(arr[i]);
             if(pq.size()>k)
@@ -26,9 +28,9 @@ class Solution{
                 pq.pop();
             }
         }
-        
         return pq.top();
     }
+    
 };
 
 // { Driver Code Starts.
