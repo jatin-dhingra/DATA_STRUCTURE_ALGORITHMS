@@ -15,8 +15,8 @@ public:
         if(!root)
         {
             return NULL;
-            
         }
+        
         int val=root->val;
         if(val<p->val && val<q->val)
         {
@@ -24,7 +24,7 @@ public:
         }
         if(val>p->val && val>q->val)
         {
-           return lowestCommonAncestor(root->left,p,q);
+            return lowestCommonAncestor(root->left,p,q);
         }
         return root;
         
