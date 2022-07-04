@@ -20,25 +20,25 @@ public:
 
 class Solution {
 public:
-    void dfs(Node* root,vector<int>&ans)
+    
+    void DFS(Node* node,vector<int>&ans)
     {
         
-        ans.push_back(root->val);
-        for(Node* child:root->children)
+        ans.push_back(node->val);
+        for(Node *x:node->children)
         {
-            dfs(child,ans);
+            DFS(x,ans);
         }
-        
     }
     vector<int> preorder(Node* root) 
     {
-        
         vector<int>ans;
         if(!root)
         {
             return ans;
         }
-        dfs(root,ans);
+        
+        DFS(root,ans);
         return ans;
         
     }
