@@ -2,43 +2,44 @@ class Solution {
 public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) 
     {
-        int m=matrix.size();
-        int n=matrix[0].size();
+        int n=matrix.size();
+        int m=matrix[0].size();
         
         vector<int>ans;
+        int row1=0;
+        int row2=n-1;
+        int col1=0;
+        int col2=m-1;
         
-        int r0=0,r1=m-1;
-        int c0=0,c1=n-1;
-        
-        while(r0<=r1 && c0<=c1)
+        while(row1<=row2 && col1<=col2)
         {
-            for(int i=c0;i<=c1;i++)
+            for(int i=col1;i<=col2;i++)
             {
-                ans.push_back(matrix[r0][i]);
+                ans.push_back(matrix[row1][i]);
             }
-            for(int i=r0+1;i<=r1;i++)
+            for(int i=row1+1;i<=row2;i++)
             {
-                ans.push_back(matrix[i][c1]);
+                ans.push_back(matrix[i][col2]);
             }
-            
-            if(r0<r1 && c0<c1)
+            if(row1<row2 && col1<col2)
             {
-                for(int i=c1-1;i>c0;i--)
+                for(int i=col2-1;i>col1;i--)
                 {
-                    ans.push_back(matrix[r1][i]);
+                    ans.push_back(matrix[row2][i]);
                 }
-                for(int i=r1;i>r0;i--)
+                for(int i=row2;i>row1;i--)
                 {
-                    ans.push_back(matrix[i][c0]);
+                    ans.push_back(matrix[i][col1]);
                 }
             }
-            r0++;
-            r1--;
-            c0++;
-            c1--;
+            row1++;
+            row2--;
+            col1++;
+            col2--;
         }
         return ans;
-            
+        
+        
         
     }
 };
