@@ -2,7 +2,8 @@ class Solution {
 public:
     int candy(vector<int>& nums) 
     {
-        int n=nums.size();
+        
+       int n=nums.size();
         vector<int>start(n,1),end(n,1);
         
         for(int i{1};i<n;i++)
@@ -25,7 +26,6 @@ public:
             ans+=max(end[i],start[i]);
         }
         return ans;
-        
         
     }
 };
