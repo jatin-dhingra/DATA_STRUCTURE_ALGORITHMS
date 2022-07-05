@@ -3,9 +3,9 @@ public:
     bool backspaceCompare(string s, string t) 
     {
         stack<char>st1,st2;
-        
-        string one{},two{};
-        for(int i{};i<s.size();i++)
+        int n=s.size();
+        int m=t.size();
+        for(int i{};i<n;i++)
         {
             if(s[i]=='#' && !st1.empty())
             {
@@ -16,7 +16,8 @@ public:
                 st1.push(s[i]);
             }
         }
-        for(int i{};i<t.size();i++)
+        
+        for(int i{};i<m;i++)
         {
             if(t[i]=='#' && !st2.empty())
             {
@@ -27,7 +28,6 @@ public:
                 st2.push(t[i]);
             }
         }
-        
         return st1==st2;
         
     }
