@@ -2,10 +2,9 @@ class Solution {
 public:
     int fib(int n)
     {
-        if(n<2)
+        if(n<=1)
         {
             return n;
-            
         }
         int dp[n+1];
         dp[0]=0;
@@ -15,7 +14,7 @@ public:
         {
             dp[i]=dp[i-1]+dp[i-2];
         }
-        
         return dp[n];
+        
     }
 };
