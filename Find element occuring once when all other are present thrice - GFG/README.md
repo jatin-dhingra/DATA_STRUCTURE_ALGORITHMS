@@ -1,5 +1,5 @@
 # Find element occuring once when all other are present thrice
-## Medium 
+##  Medium 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given an array of integers <strong>arr[]</strong> of length N, every element appears thrice except for one which occurs once.</span><br>
 <span style="font-size:18px">Find that element which occurs once.</span></p>
