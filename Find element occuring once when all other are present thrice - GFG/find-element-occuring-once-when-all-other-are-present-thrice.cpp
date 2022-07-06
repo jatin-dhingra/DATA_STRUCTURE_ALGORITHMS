@@ -10,24 +10,29 @@ using namespace std;
 
 class Solution {
   public:
-    int singleElement(int arr[] ,int N) {
+    int singleElement(int arr[] ,int N) 
+    {
+        
         // code here
-        map<int,int>m;
-        for(int i{};i<N;i++)
-        {
-            m[arr[i]]++;
-        }
+        int sum{},val{};
         int ans{};
-        for(auto i:m)
+        for(int i{};i<32;i++)
         {
-            if(i.second==1)
+            sum=0;
+            val=(1<<i);
+            for(int j{};j<N;j++)
             {
-                ans=i.first;
-                
+                if(arr[j]&val)
+                {
+                    sum++;
+                }
+            }
+            if(sum%3!=0)
+            {
+                ans|=val;
             }
         }
         return ans;
-        
     }
 };
 
