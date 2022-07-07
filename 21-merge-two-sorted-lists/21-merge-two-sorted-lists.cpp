@@ -32,13 +32,13 @@ public:
         if(list1 )
         {
             newhead->next=list1;
-            list1=list1->next;
+            
             
         }
         if(list2 )
         {
             newhead->next=list2;
-            list2=list2->next;
+           
         }
         return curr->next;
         
