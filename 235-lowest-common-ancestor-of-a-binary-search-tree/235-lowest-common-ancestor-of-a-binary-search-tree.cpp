@@ -16,15 +16,13 @@ public:
         {
             return NULL;
         }
-        
         int val=root->val;
-        if(val<p->val && val<q->val)
+        if(val>p->val && val>q->val){
+            return lowestCommonAncestor(root->left,p,q);
+        }
+        else if(val<p->val && val<q->val)
         {
             return lowestCommonAncestor(root->right,p,q);
-        }
-        if(val>p->val && val>q->val)
-        {
-            return lowestCommonAncestor(root->left,p,q);
         }
         return root;
         
