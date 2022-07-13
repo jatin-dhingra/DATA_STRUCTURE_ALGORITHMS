@@ -2,28 +2,13 @@ class Solution {
 public:
     bool searchMatrix(vector<vector<int>>& matrix, int target) 
     {
-        int m=matrix.size();
-        int n=matrix[0].size();
+        int n=matrix.size();
+        int m=matrix[0].size();
         
-        // brute force;
-//         for(int i{};i<m;i++)
-//         {
-            
-//             for(int j{};j<n;j++)
-//             {
-//                 if(matrix[i][j]==target)
-//                 {
-//                     return true;
-//                 }
-//             }
-//         }
-//         return false;
-        
-        // optimized 
         int i=0;
-        int j=n-1;
+        int j=m-1;
         
-        while(i>=0 && i<m && j>=0 && j<n)
+        while(i>=0 && i<n && j>=0 && j<m)
         {
             if(matrix[i][j]==target)
             {
@@ -33,13 +18,12 @@ public:
             {
                 i++;
             }
-            else if(matrix[i][j]>target)
+            else
             {
                 j--;
             }
         }
         return false;
-        
         
     }
 };
