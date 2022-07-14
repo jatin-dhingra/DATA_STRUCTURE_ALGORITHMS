@@ -3,7 +3,7 @@ public:
     
     void DFS(vector<vector<char>>&grid,int x,int y)
     {
-        if(x<0 || y<0 || x>=grid.size()|| y>=grid[0].size() || grid[x][y]=='0')
+        if(x<0 || x>=grid.size() || y<0 || y>=grid[0].size() || grid[x][y]=='0')
         {
             return;
         }
@@ -12,10 +12,9 @@ public:
         DFS(grid,x+1,y);
         DFS(grid,x,y-1);
         DFS(grid,x,y+1);
-        
     }
     
-    int numIslands(vector<vector<char>>& grid) 
+    int numIslands(vector<vector<char>>& grid)
     {
         int n=grid.size();
         int m=grid[0].size();
