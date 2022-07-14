@@ -11,33 +11,33 @@ class Solution
     vector<int> subarraySum(int arr[], int n, long long s)
     {
         // Your code here
-        int st{},e{};
-        long long sum{};
+        
         vector<int>ans;
-        while(st<n)
+        
+        
+        for(int i{};i<n;i++)
         {
-            if(sum==s)
+            long long  sum{};
+            for(int j=i;j<n;j++)
             {
-                ans.push_back(st+1);
-                ans.push_back(e);
-                return ans;
-            }
-           
-            if(sum<s)
-            {
+                sum+=arr[j];
+                if(sum==s)
+                {
+                    ans.push_back(i+1);
+                    ans.push_back(j+1);
+                    return ans;
+                }
+                if(sum>s)
+                {
+                    break;
+                }
                 
-                sum+=arr[e];
-                e++;
-                
             }
-            else
-            {
-                sum-=arr[st];
-                st++;
-            }
+            
         }
         ans.push_back(-1);
         return ans;
+        
     }
 };
 
