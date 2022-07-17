@@ -1,27 +1,33 @@
 class Solution {
 public:
-    int trap(vector<int>& height) 
+    int trap(vector<int>& nums) 
     {
-        int n=height.size();
+        int n=nums.size();
+        int left[n],right[n];
+        left[0]=nums[0];
+        right[n-1]=nums[n-1];
         
-        vector<int>maxleft(n),maxright(n);
-        maxleft[0]=height[0];
-        maxright[n-1]=height[n-1];
         for(int i{1};i<n;i++)
         {
-            maxleft[i]=max(maxleft[i-1],height[i]);
+            left[i]=max(left[i-1],nums[i]);
         }
-        
-       for(int i=n-2;i>=0;i--)
+        for(int i=n-2;i>=0;i--)
         {
-            maxright[i]=max(maxright[i+1],height[i]);
+            right[i]=max(right[i+1],nums[i]);
         }
-        
+        vector<int>change(n);
+        for(int i{};i<n;i++)
+        {
+            change[i]=min(left[i],right[i]);
+        }
         int ans{};
         for(int i{};i<n;i++)
         {
-            ans+=(min(maxleft[i],maxright[i]))-height[i];
+            ans+=change[i]-nums[i];
         }
+        cout<<ans;
+        
         return ans;
+        
     }
 };
