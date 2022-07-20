@@ -11,26 +11,29 @@
  */
 class Solution {
 public:
-    bool check(TreeNode* left,TreeNode* right)
+    
+    bool check(TreeNode* a,TreeNode* b)
     {
-        if(!left || !right)
+        if(!a || !b)
         {
-            return left==right;
+            return a==b;
         }
-        if(left->val!=right->val)
+        if(a->val!=b->val)
         {
             return false;
         }
-        return check(left->left,right->right) && check(left->right,right->left);
+        return check(a->left,b->right)&& check(a->right,b->left);
     }
+    
+    
     bool isSymmetric(TreeNode* root) 
     {
         if(!root)
         {
-            return true;
+            return false;
         }
-        
         return check(root->left,root->right);
+        
         
     }
 };
