@@ -1,39 +1,36 @@
 struct Node
 {
-    Node *links[26];
+    Node* links[26];
     bool flag=false;
-
-    bool containkeys(char ch) {
-        return (links[ch - 'a'] != NULL); 
+    bool containkeys(char x)
+    {
+        return (links[x-'a']!=NULL);
     }
     
     void put(char ch,Node* node)
     {
-        links[ch-'a']= node;
+         links[ch-'a']=node;
     }
-    Node* get(char ch) 
+    Node* get(char c)
     {
-        return links[ch-'a']; 
+        return links[c-'a'];
     }
-    void setEnd()
+    void maketrue()
     {
-        
         flag=true;
     }
-    bool isEnd()
+    bool isend()
     {
         return flag;
     }
 };
 
-
-class Trie 
-{
- private: Node *root; 
-    
+class Trie {
+private: Node* root;
 public:
-     Trie() {
-        root = new Node(); 
+    Trie() 
+    {
+        root=new Node();   
     }
     
     void insert(string word) 
@@ -47,11 +44,11 @@ public:
             }
             node=node->get(word[i]);
         }
-        node->setEnd();
+        node->maketrue();
         
     }
     
-    bool search(string word) 
+    bool search(string word)
     {
         Node* node=root;
         for(int i{};i<word.size();i++)
@@ -62,13 +59,12 @@ public:
             }
             node=node->get(word[i]);
         }
-        return node->isEnd();
-        
+        return node->isend();
     }
     
     bool startsWith(string prefix) 
     {
-        Node* node=root;
+       Node* node=root;
         for(int i{};i<prefix.size();i++)
         {
             if(!node->containkeys(prefix[i]))
@@ -78,6 +74,7 @@ public:
             node=node->get(prefix[i]);
         }
         return true;
+        
     }
 };
 
