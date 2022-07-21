@@ -11,19 +11,22 @@
  */
 class Solution {
 public:
-    void DFS(TreeNode* node,vector<int>&ans,int n)
+    void DFS(TreeNode* node,vector<int>&ans,int len)
     {
         if(!node)
         {
             return;
         }
-        if(n==ans.size())
+        if(ans.size()==len)
         {
             ans.push_back(node->val);
+            
         }
-        DFS(node->right,ans,n+1);
-        DFS(node->left,ans,n+1);
+        
+        DFS(node->right,ans,len+1);
+        DFS(node->left,ans,len+1);
     }
+    
     vector<int> rightSideView(TreeNode* root) 
     {
         vector<int>ans;
@@ -33,5 +36,6 @@ public:
         }
         DFS(root,ans,0);
         return ans;
+        
     }
 };
