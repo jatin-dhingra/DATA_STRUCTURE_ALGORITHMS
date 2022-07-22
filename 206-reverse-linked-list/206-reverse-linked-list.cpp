@@ -10,7 +10,7 @@
  */
 class Solution {
 public:
-    ListNode* reverseList(ListNode* head) 
+    ListNode* reverseList(ListNode* head)
     {
         ListNode* start=NULL;
         while(head)
