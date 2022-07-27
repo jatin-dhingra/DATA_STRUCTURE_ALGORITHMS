@@ -7,7 +7,7 @@ public:
         {
             return ans;
         }
-        map<string,int>m;
+        unordered_map<string,int>m;
         for(int i{};i<=s.size()-10;i++)
         {
             string str=s.substr(i,10);
