@@ -11,16 +11,17 @@
  */
 class Solution {
 public:
-    void flatten(TreeNode* root) 
+    void flatten(TreeNode* root)
     {
+        
+        stack<TreeNode*>st;
         if(!root)
         {
             return;
+            
         }
         TreeNode* curr=NULL;
-        stack<TreeNode*>st;
         st.push(root);
-        
         while(!st.empty())
         {
             curr=st.top();
@@ -37,10 +38,10 @@ public:
             {
                 curr->right=st.top();
             }
-            curr->left=NULL; 
+            curr->left=NULL;
         }
         root=curr;
         
-        
     }
+    
 };
