@@ -1,9 +1,9 @@
 class Solution {
 public:
-    int maxSubArray(vector<int>& nums) 
+    int maxSubArray(vector<int>& nums)
     {
         int sum{};
-        int ans{INT_MIN};
+        int ans=INT_MIN;
         for(auto i:nums)
         {
             sum+=i;
