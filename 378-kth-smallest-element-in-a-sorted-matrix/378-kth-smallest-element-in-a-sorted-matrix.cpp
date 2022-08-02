@@ -3,15 +3,21 @@ public:
     int kthSmallest(vector<vector<int>>& mat, int k) 
     {
         vector<int>v;
+        priority_queue<int>p;
         for(auto i:mat)
         {
             for(auto j:i)
             {
-                v.push_back(j);
+                p.push(j);
+                if(p.size()>k)
+                {
+                    p.pop();
+                }
+                
             }
         }
-        sort(v.begin(),v.end());
-        return v[k-1];
+       
+        return p.top();
         
     }
 };
