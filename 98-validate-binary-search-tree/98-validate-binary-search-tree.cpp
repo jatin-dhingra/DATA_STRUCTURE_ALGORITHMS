@@ -13,24 +13,18 @@ class Solution {
 public:
     bool isValidBST(TreeNode* root) 
     {
+        return check(root,LONG_MIN,LONG_MAX);    
+    }
+    bool check(TreeNode* root,long a,long b)
+    {
         if(!root)
         {
-            return true;
+            return 1;
         }
-        return check(root,LLONG_MIN,LLONG_MAX);
-        
-    }
-    
-    bool check(TreeNode* node,long long a,long long b)
-    {
-        if(node==NULL)
+        if(root->val<=a || root->val>=b)
         {
-            return true;
+            return 0;
         }
-        if(node->val>=b || node->val<=a)
-        {
-            return false;
-        }
-        return check(node->left,a,node->val) && check(node->right,node->val,b);
+        return check(root->left,a,root->val)&& check(root->right,root->val,b);
     }
 };
