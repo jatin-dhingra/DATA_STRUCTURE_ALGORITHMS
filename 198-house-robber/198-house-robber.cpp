@@ -1,7 +1,7 @@
 class Solution {
 public:
     int dp[101];
-    int solve(int n,vector<int>&nums)
+    int money(vector<int>&nums,int n)
     {
         if(n==0)
         {
@@ -15,16 +15,15 @@ public:
         {
             return dp[n];
         }
-        int pick=nums[n]+solve(n-2,nums);
-        
-        int notpick=solve(n-1,nums);
+        int pick=nums[n]+money(nums,n-2);
+        int notpick=money(nums,n-1);
         return dp[n]=max(pick,notpick);
     }
     int rob(vector<int>& nums) 
     {
         memset(dp,-1,sizeof(dp));
         int n=nums.size();
-        return solve(n-1,nums);
+        return money(nums,n-1);
         
     }
 };
