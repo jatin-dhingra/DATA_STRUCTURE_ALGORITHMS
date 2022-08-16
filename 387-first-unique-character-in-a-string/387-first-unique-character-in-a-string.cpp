@@ -9,7 +9,7 @@ public:
         {
             m[s[i]]++;
         }
-        int ans{INT_MAX};
+        
         for(int i{};i<n;i++)
         {
             for(auto j:m)
