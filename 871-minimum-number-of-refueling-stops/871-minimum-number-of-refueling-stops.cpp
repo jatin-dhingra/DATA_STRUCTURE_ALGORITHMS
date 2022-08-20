@@ -2,7 +2,7 @@ class Solution {
 public:
     int minRefuelStops(int t, int fuel, vector<vector<int>>& st) 
     {
-        priority_queue<int>pq;
+        priority_queue<int,vector<int>>pq;
         int n=st.size();
         if(n==0)
         {
