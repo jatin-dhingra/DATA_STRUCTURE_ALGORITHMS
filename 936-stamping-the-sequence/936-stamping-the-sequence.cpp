@@ -22,24 +22,30 @@ public:
         return count;
     }
     
-    vector<int> movesToStamp(string stamp, string target) {
+    vector<int> movesToStamp(string stamp, string target) 
+    {
         vector<int>v;
         int cnt = 0;
-        int st = target.size();
-        int ss = stamp.size();
-        vector<bool>vis(st,false);
-        while(cnt != st){
+        int ind = target.size();
+        int end = stamp.size();
+        vector<bool>vis(ind,false);
+        while(cnt != ind)
+        {
             bool flag = false;
-            for(int i = 0; i <= st-ss; i++){
-                if(!vis[i] && canReplace(target, stamp, i)){
+            for(int i = 0; i <= ind-end; i++)
+            {
+                if(!vis[i] && canReplace(target, stamp, i))
+                {
                     vis[i]= true;
                     flag = true;
-                    cnt = replace(target, i, ss, cnt);
+                    cnt = replace(target, i, end, cnt);
                     v.push_back(i);    
-                    if(cnt == st) break;
+                    if(cnt == ind) 
+                        break;
                 }
             }
-            if(!flag) return {};
+            if(!flag) 
+                return {};
         }
         reverse(v.begin(), v.end());
         return v;
