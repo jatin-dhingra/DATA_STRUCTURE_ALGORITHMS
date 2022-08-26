@@ -1,29 +1,24 @@
 class Solution {
 public:
-    
-    void DFS(vector<vector<int>>&img,int x,int y,int set,int newColor)
+    void dfs(vector<vector<int>>&image, int x, int y, int color,int currcolor)
     {
-        if(x<0 || y<0 || x>=img.size()|| y>img[0].size()|| img[x][y]!=set)
+        if(x<0 || y<0|| x>=image.size()|| y>=image[0].size() || image[x][y]!=currcolor)
         {
             return;
         }
-        img[x][y]=newColor;
-        DFS(img,x-1,y,set,newColor);
-        DFS(img,x+1,y,set,newColor);
-        DFS(img,x,y-1,set,newColor);
-        DFS(img,x,y+1,set,newColor);
-        
+        image[x][y]=color;
+        dfs(image,x-1,y,color,currcolor);
+        dfs(image,x+1,y,color,currcolor);
+        dfs(image,x,y+1,color,currcolor);
+        dfs(image,x,y-1,color,currcolor);
     }
-    
-    vector<vector<int>> floodFill(vector<vector<int>>& img, int sr, int sc, int newColor) 
+    vector<vector<int>> floodFill(vector<vector<int>>& image, int sr, int sc, int color) 
     {
-         if(img[sr][sc]==newColor)
-         {
-            return img;
-         }
-        int set=img[sr][sc];
-        DFS(img,sr,sc,set,newColor);
-        return img;
-        
+        int currcolor=image[sr][sc];
+        if(image[sr][sc]!=color)
+        {
+            dfs(image,sr,sc,color,currcolor);
+        }
+        return image;
     }
 };
