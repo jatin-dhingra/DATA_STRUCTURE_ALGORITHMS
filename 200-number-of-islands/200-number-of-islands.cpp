@@ -1,31 +1,31 @@
 class Solution {
 public:
-    void DFS(int x,int y,vector<vector<char>>&nums)
+    void dfs(int x,int y,vector<vector<char>>&grid)
     {
-        if(x<0 || y<0 || x>=nums.size()|| y>=nums[0].size()|| nums[x][y]=='0')
+        if(x<0 || y<0 || x>=grid.size()|| y>=grid[0].size()||grid[x][y]=='0')
         {
             return;
         }
-        nums[x][y]='0';
-        DFS(x+1,y,nums);
-        DFS(x-1,y,nums);
-        DFS(x,y+1,nums);
-        DFS(x,y-1,nums);
+        grid[x][y]='0';
+        dfs(x+1,y,grid);
+        dfs(x-1,y,grid);
+        dfs(x,y-1,grid);
+        dfs(x,y+1,grid);
     }
-    int numIslands(vector<vector<char>>& nums) 
+    int numIslands(vector<vector<char>>& grid) 
     {
-        
+        int n=grid.size();
+        int m=grid[0].size();
         int count{};
-        int n=nums.size();
-        int m=nums[0].size();
+        
         for(int i{};i<n;i++)
         {
             for(int j{};j<m;j++)
             {
-                if(nums[i][j]=='1')
+                if(grid[i][j]=='1')
                 {
                     count++;
-                    DFS(i,j,nums);
+                    dfs(i,j,grid);
                 }
             }
         }
