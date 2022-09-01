@@ -11,22 +11,24 @@
  */
 class Solution {
 public:
-    int solve(TreeNode* root,int val)
+    int solve(TreeNode* root,int node)
     {
         if(!root)
         {
             return 0;
         }
         int count{};
-        if(root->val>=val)
+        if(root->val>=node)
         {
             count++;
-            val=root->val;
+            node=root->val;
+            
         }
-       
-        return count+solve(root->right,val)+solve(root->left,val);
+        int left=solve(root->left,node);
+        int right=solve(root->right,node); 
+        return count+left+right;
     }
-    int goodNodes(TreeNode* root)
+    int goodNodes(TreeNode* root) 
     {
         if(!root)
         {
