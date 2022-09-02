@@ -13,49 +13,45 @@ class Solution {
 public:
     vector<double> averageOfLevels(TreeNode* root) 
     {
-        vector<double>mainans;
+        vector<double>ans;
+        double val{};
         
-         queue<TreeNode*>q;
-        vector<vector<int>>ans;
-        q.push(root);
-        if(root==NULL)
+        if(!root)
         {
-            return mainans;
+            return ans;
         }
         
+        queue<TreeNode*>q;
+        q.push(root);
+        vector<vector<int>>vec;
         while(!q.empty())
         {
-            int si=q.size();
+          
             vector<int>v;
-            for(int i{};i<si;i++)
+            int s=q.size();
+            for(int i{};i<s;i++)
             {
                 TreeNode* node=q.front();
+                v.push_back(node->val);
                 q.pop();
-                if(node->left!=NULL)
+                if(node->left)
                 {
                     q.push(node->left);
                 }
-                if(node->right!=NULL)
+                if(node->right)
                 {
                     q.push(node->right);
                 }
-                v.push_back(node->val);
             }
-            ans.push_back(v);
+            vec.push_back(v);
         }
-        int val1{};
-        
-        for(int i{};i<ans.size();i++)
+        cout<<fixed<<setprecision(5);
+        for(auto i:vec)
         {
-            double sum{},pushingval{};
-            for(int j{};j<ans[i].size();j++)
-            {
-                sum+=ans[i][j];
-            }
-            pushingval=sum/ans[i].size();
-            mainans.push_back(pushingval);
+           double summ=accumulate(i.begin(),i.end(),0.0);
+            ans.push_back(summ/(i.size())*1.0);
         }
-        return mainans;
-        
+        return ans;
     }
+    
 };
