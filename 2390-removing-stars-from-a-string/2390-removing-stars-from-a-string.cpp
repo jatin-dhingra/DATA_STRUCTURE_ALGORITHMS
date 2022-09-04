@@ -2,7 +2,7 @@ class Solution {
 public:
     string removeStars(string s) 
     {
-        deque<char>dq;
+        vector<char>dq;
         for(char c:s)
         {
             if(c=='*')
