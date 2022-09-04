@@ -17,7 +17,7 @@ public:
         }
         while(!st.empty())
         {
-            ans+=st.top();
+            ans.push_back(st.top());
             st.pop();
         }
         reverse(ans.begin(),ans.end());
