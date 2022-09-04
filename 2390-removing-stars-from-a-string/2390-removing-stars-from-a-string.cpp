@@ -3,19 +3,19 @@ public:
     string removeStars(string s) 
     {
         vector<char>dq;
-        for(char c:s)
+        for(int i{};i<s.size();i++)
         {
-            if(c=='*')
+            if(s[i]=='*')
             {
                 dq.pop_back();
+                continue;
             }
-            else
-            {
-                dq.push_back(c);
-            }
+            
+            dq.push_back(s[i]);
+                
         }
         string ans{};
-        for(auto i:dq)
+        for(auto &i:dq)
         {
             ans+=i;
         }
