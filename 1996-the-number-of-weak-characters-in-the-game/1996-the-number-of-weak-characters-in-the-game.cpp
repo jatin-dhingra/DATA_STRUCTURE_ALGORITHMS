@@ -18,7 +18,6 @@ public:
         st.push({v[0][0],v[0][1]});
         for(int i{1};i<n;i++)
         {
-            
             while(!st.empty() && st.top().second<=v[i][1])
             {
                 st.pop();
