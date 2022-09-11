@@ -35,7 +35,7 @@ public:
         }
         
         //cout<<(int)ans%mod<<endl;
-        return ans%1000000007;
+        return ans%mod;
         
     }
 };
