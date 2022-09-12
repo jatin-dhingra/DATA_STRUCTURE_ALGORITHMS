@@ -1,13 +1,14 @@
 class Solution {
 public:
     long long dp[201][201];
-    long long solve(int i,int j,vector<vector<int>>& nums)
+    long long solve(vector<vector<int>>& grid,int i,int j)
     {
-         if(i==0 && j==0)
-         {
-             return nums[0][0];
-         }
-        if(i<0 || j<0)
+        if(i==0 && j==0)
+        {
+            return grid[i][j];
+            
+        }
+        if(i<0 ||j<0)
         {
             return INT_MAX-1;
         }
@@ -15,16 +16,16 @@ public:
         {
             return dp[i][j];
         }
-        long long  up=nums[i][j]+solve(i-1,j,nums);
-        long long   left=nums[i][j]+solve(i,j-1,nums);
+        long long up=grid[i][j]+solve(grid,i-1,j);
+        long long left=grid[i][j]+solve(grid,i,j-1);
         return dp[i][j]=min(up,left);
     }
-    int minPathSum(vector<vector<int>>& nums) 
+    int minPathSum(vector<vector<int>>& grid) 
     {
-        int n=nums.size();
-        int m=nums[0].size();
         memset(dp,-1,sizeof(dp));
-        return (int)solve(n-1,m-1,nums);
+        int n=grid.size();
+        int m=grid[0].size();
+        return (int)solve(grid,n-1,m-1);
         
     }
 };
