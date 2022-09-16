@@ -22,6 +22,7 @@ public:
         int m=mul.size();
         int st=0;
         dp=vector<vector<int>>(m,vector<int>(m,INT_MAX));
+        
         return solve(nums,mul,st,n-1,0);
     }
 };
