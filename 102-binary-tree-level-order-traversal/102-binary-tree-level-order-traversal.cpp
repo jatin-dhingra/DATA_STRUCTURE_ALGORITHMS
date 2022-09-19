@@ -14,34 +14,34 @@ public:
     vector<vector<int>> levelOrder(TreeNode* root) 
     {
         
-        vector<vector<int>>ans;
-        queue<TreeNode*>q;
-        q.push(root);
+        vector<vector<int>>vecans;
         if(!root)
         {
-            return ans;
+            return vecans;
         }
+        queue<TreeNode*>q;
+        q.push(root);
         while(!q.empty())
         {
+            vector<int>ans;
             int n=q.size();
-            vector<int>v;
+            
             for(int i{};i<n;i++)
             {
                 TreeNode* node=q.front();
                 q.pop();
-                v.push_back(node->val);
-                if(node->left!=NULL)
+                ans.push_back(node->val);
+                if(node->left)
                 {
                     q.push(node->left);
                 }
-                if(node->right!=NULL)
+                if(node->right)
                 {
                     q.push(node->right);
                 }
             }
-            ans.push_back(v);
+            vecans.push_back(ans);
         }
-        return ans;
-        
+        return vecans;
     }
 };
