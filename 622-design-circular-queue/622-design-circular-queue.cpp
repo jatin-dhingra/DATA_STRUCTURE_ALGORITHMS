@@ -11,20 +11,20 @@ public:
     {
         if(dq.size()==l)
         {
-            return false;
+            return 0;
         }
         dq.push_back(value);
-        return true;
+        return 1;
     }
     
     bool deQueue() 
     {
         if(isEmpty())
         {
-            return false;
+            return 0;
         }
         dq.pop_front();
-        return true;
+        return 1;
     }
     
     int Front() 
@@ -50,13 +50,13 @@ public:
     
     bool isEmpty() 
     {
-        return dq.size()==0?true:false;
+        return dq.size()==0?1:0;
         
     }
     
     bool isFull() 
     {
-        return dq.size()==l?true:false;
+        return dq.size()==l?1:0;
         
     }
 };
