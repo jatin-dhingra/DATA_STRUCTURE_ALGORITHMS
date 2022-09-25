@@ -33,8 +33,8 @@ public:
         {
             return -1;
         }
-        int val=dq.front();
-        return val;
+        // int val=dq.front();
+        return dq[0];
     }
     
     int Rear() 
@@ -44,8 +44,8 @@ public:
             return -1;
         }
         
-        int s=dq.back();
-        return s;
+        int s=dq.size();
+        return dq[s-1];
     }
     
     bool isEmpty() 
