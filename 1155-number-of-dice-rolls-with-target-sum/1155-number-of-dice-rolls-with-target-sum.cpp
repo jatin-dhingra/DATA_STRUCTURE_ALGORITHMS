@@ -21,10 +21,10 @@ public:
         
         for(int i=1;i<=k;i++)
         {
-            total=(total%mod+(solve(n-1,k,t-i))%mod)%mod;    
+            total=(total%mod+(solve(n-1,k,t-i))%mod);    
         }
         
-        return dp[n][t]=total;
+        return dp[n][t]=total%mod;
     }
     
     int numRollsToTarget(int n, int k, int target) 
