@@ -1,18 +1,18 @@
 class Solution {
 public:
-     int mod=1e9+7;
-     int dp[31][1001]; 
+    int mod=1e9+7;
+    int dp[31][1001]; 
     int solve(int n,int k,int t)
     {
-       
-        if(t==0 && n==0)
-        {
-            return 1;
-        }
         if(t<0 || n<0)
         {
             return 0;
         }
+        if(t==0 && n==0)
+        {
+            return 1;
+        }
+        
         if(dp[n][t]!=-1)
         {
             return dp[n][t];
