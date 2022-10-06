@@ -23,21 +23,12 @@ public:
         }
         sort(vp.begin(),vp.end());
         string ans{};
-        // for(auto i:vp)
-        // {
-        //     cout<<i.first<<" "<<i.second<<endl;
-        // }
         for(auto i:vp)
         {
             ans+=(i.second);
             ans+=' ';
         }
-        
-        string mainans{};
-        for(int i{};i<ans.size()-1;i++)
-        {
-            mainans+=ans[i];
-        }
-        return mainans;
+        ans.pop_back();
+        return ans;
     }
 };
