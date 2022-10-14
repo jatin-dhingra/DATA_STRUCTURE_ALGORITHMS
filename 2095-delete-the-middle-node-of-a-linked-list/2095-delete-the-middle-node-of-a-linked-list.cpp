@@ -10,7 +10,7 @@
  */
 class Solution {
 public:
-    ListNode* deleteMiddle(ListNode* head)
+    ListNode* deleteMiddle(ListNode* head) 
     {
         if(!head || head->next==NULL)
         {
@@ -28,5 +28,4 @@ public:
         slow->next=slow->next->next;
         return head;
     }
-    
 };
