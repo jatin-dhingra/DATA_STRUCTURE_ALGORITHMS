@@ -1,23 +1,22 @@
 class Solution {
 public:
-    int mostWordsFound(vector<string>& sentences) 
+    int mostWordsFound(vector<string>& s) 
     {
         int ans{};
-        vector<int>v;
-        for(string i:sentences)
+      //  int count{};
+        for(auto i:s)
         {
             int count{};
-            for(char x:i)
-            {
-                if(x==' ')
-                {
-                    count++;
-                }
-            }
-            v.push_back(count+1);
+           for(auto x:i)
+           {
+               if(x==' ')
+               {
+                   count++;
+               }
+           }
+            ans=max(ans,count+1);
         }
         
-        return *max_element(v.begin(),v.end());
-        
+        return ans;
     }
 };
