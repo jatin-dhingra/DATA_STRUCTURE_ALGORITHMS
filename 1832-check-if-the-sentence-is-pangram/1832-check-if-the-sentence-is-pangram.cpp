@@ -7,11 +7,7 @@ public:
         {
             m[c]++;
         }
-        if(m.size()!=26)
-        {
-            return false;
-        }
-        return true;
+        return (m.size()==26?1:0);
         
     }
 };
