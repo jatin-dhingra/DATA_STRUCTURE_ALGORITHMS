@@ -9,10 +9,7 @@ public:
         for(int i{};i<n;i++)
         {
             summ+=nums[i];
-            if(k!=0)
-            {
-                summ%=k;
-            }
+            summ%=k;
             if(m.find(summ)!=m.end())
             {
                 if( i-m[summ]>1)
