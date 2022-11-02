@@ -5,10 +5,11 @@ public:
         
         vector<char> mut = {'A','C','G','T'};
         unordered_map<string,bool> visited;
-        for(auto str: bank)
-            visited[str] = false;
-        // if(visited.find(end) == visited.end())
-        //     return -1;
+        for(auto i: bank)
+        {
+            visited[i]=false;
+        }
+        
         queue<string> q;
         q.push(start);
         int ans=-1;
