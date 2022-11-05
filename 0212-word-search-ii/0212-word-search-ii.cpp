@@ -2,7 +2,7 @@ class Solution {
 public:
 
     string str;
-    bool vis[13][12];
+    bool vis[13][13];
 
     unordered_set<string> res;
     unordered_set<string> vec;
