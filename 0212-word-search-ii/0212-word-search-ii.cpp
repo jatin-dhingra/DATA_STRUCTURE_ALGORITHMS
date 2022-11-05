@@ -1,13 +1,11 @@
 class Solution {
 public:
-
+    
+    unordered_set<string>res;
+    unordered_set<string>vec;
+    unordered_map<string,int> m;
     string str;
     bool vis[13][13];
-
-    unordered_set<string> res;
-    unordered_set<string> vec;
-    unordered_map<string, int> m;
-
     void rec(int i, int j, vector<vector<char>> &a)
     {
         if (vec.find(str)!=vec.end())
