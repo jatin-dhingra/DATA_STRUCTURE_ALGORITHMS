@@ -11,51 +11,39 @@
  */
 class Solution {
 public:
-    void swap(vector<int> &arr,
-          int i, int j)
-{
-  int temp = arr[i];
-  arr[i] = arr[j];
-  arr[j] = temp;
-}
-    int minswap(vector<int>arr,
-             int N)
-{
-  int ans = 0;
-  vector<int>temp = arr;
- 
-  // Hashmap which stores the
-  // indexes of the input array
-  map <int, int> h;
- 
-  sort(temp.begin(), temp.end());
-  for (int i = 0; i < N; i++)
-  {
-    h[arr[i]] = i;
-  }
-  for (int i = 0; i < N; i++)
-  {
-    // This is checking whether
-    // the current element is
-    // at the right place or not
-    if (arr[i] != temp[i])
+    void swap(vector<int> &arr,int i, int j)
     {
-      ans++;
-      int init = arr[i];
- 
-      // If not, swap this element
-      // with the index of the
-      // element which should come here
-      swap(arr, i, h[temp[i]]);
- 
-      // Update the indexes in
-      // the hashmap accordingly
-      h[init] = h[temp[i]];
-      h[temp[i]] = i;
+      int temp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = temp;
     }
-  }
-  return ans;
-}
+    int minswap(vector<int>&arr,int N)
+    {
+      int ans{};
+      vector<int>temp = arr;
+      unordered_map<int, int>h;
+
+      sort(temp.begin(), temp.end());
+      for (int i{};i<N;i++)
+      {
+        h[arr[i]]=i;
+      }
+        
+      for (int i = 0; i < N; i++)
+      {
+        if (arr[i] != temp[i])
+        {
+          ans++;
+          int init = arr[i];
+
+          swap(arr, i, h[temp[i]]);
+
+          h[init] = h[temp[i]];
+          h[temp[i]] = i;
+        }
+      }
+      return ans;
+    }
     int minimumOperations(TreeNode* root) 
     {
         vector<vector<int>>v;
