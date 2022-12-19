@@ -1,7 +1,7 @@
 class Solution {
 public:
     int check{};
-    void dfs(vector<vector<int>>&adj,vector<int>&vis,int s,int d)
+    void dfs(vector<int>adj[],vector<int>&vis,int s,int d)
     {
         if(s==d)
         {
@@ -19,7 +19,7 @@ public:
     }
     bool validPath(int n, vector<vector<int>>& e, int s, int d) 
     {
-        vector<vector<int>>adj(n);
+        vector<int>adj[n];
         int m=e.size();
         for(int i{};i<m;i++)
         {
