@@ -1,36 +1,19 @@
 class Solution {
 public:
-    // bool solve(vector<int>&nums,int ind)
-    // {
-    //     if(ind==0)
-    //     {
-    //         return true;
-    //     }
-    //     int newind=solve(nums,ind-)
-    // }
+   
     bool canJump(vector<int>& nums) 
     {
+        int ans{};
         int n=nums.size();
-        // if(n==1)
-        // {
-        //     if(nums[0]==0)
-        //     {
-        //         return false;
-        //     }
-        //     else
-        //     {
-        //         return true;
-        //     }
-        // }
-        int ind=n-1;
-        for(int i=n-2;i>=0;i--)
+        for(int i{};i<n;i++)
         {
-            if(i+nums[i]>=ind)
+            if(i>ans)
             {
-                ind=i;
+                return false;
             }
+            ans=max(ans,i+nums[i]);
+            
         }
-        return ind==0;
-        
+        return true;
     }
 };
