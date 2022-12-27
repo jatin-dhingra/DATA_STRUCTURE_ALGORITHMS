@@ -1,33 +1,41 @@
 class Solution {
 public:
-    int maximumBags(vector<int>& capacity, vector<int>& rocks, int additionalRocks) 
+    
+    int maximumBags(vector<int>& c, vector<int>& r, int ad) 
     {
-        int count{};
-        int  n=capacity.size();
-        vector<int>diff;
+        int n=c.size();
+        vector<int>v(n);
+        
         for(int i{};i<n;i++)
         {
-            diff.push_back(capacity[i]-rocks[i]);
+            v[i]=(c[i]-r[i]);
         }
-        
-        sort(diff.begin(),diff.end());
-        for(int i{};i<diff.size();i++)
+    
+        sort(v.begin(),v.end());
+        // for(int i:v)
+        // {
+        //     cout<<i<<endl;
+        // }
+        int ans{};
+        for(int i{};i<n;i++)
         {
-            
-            if(additionalRocks-diff[i]>=0)
+            if(v[i]<=ad && v[i])
             {
-                additionalRocks-=diff[i];
-                diff[i]=0;
+                 ad-=v[i];
+                v[i]=0;
+               
             }
         }
-        for(auto i:diff)
+        for(int i:v)
         {
             if(i==0)
             {
-                count++;
+                
+                ans++;
             }
+            //cout<<i<<endl;
         }
-        return count;
+        return ans;
         
     }
 };
