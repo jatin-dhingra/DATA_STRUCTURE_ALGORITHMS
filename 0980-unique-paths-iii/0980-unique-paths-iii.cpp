@@ -37,7 +37,7 @@ public:
         {
             for(int j=0;j<n;j++)
             {
-                if(grid[i][j]==0 || grid[i][j]==2){
+                if(grid[i][j]==0 || grid[i][j]==1){
                     count++;
                 }
             }
