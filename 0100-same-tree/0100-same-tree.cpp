@@ -11,12 +11,34 @@
  */
 class Solution {
 public:
+    void dfs(TreeNode* p,vector<int>&v)
+    {
+        if(!p)
+        {
+            v.push_back(0);
+            return;
+        }
+        v.push_back(p->val);
+        dfs(p->left,v);
+        dfs(p->right,v);
+    }
+    void dfs1(TreeNode* q,vector<int>&u)
+    {
+        if(!q)
+        {
+            u.push_back(0);
+            return;
+        }
+        u.push_back(q->val);
+        dfs(q->left,u);
+        dfs(q->right,u);
+    }
     bool isSameTree(TreeNode* p, TreeNode* q) 
     {
-        if(!p || !q )
-        {
-            return p==q;
-        }
-        return p->val==q->val&& isSameTree(p->left,q->left)&& isSameTree(p->right,q->right);
+        vector<int>v,u;
+        dfs(p,v);
+        dfs1(q,u);
+        return v==u;
+        
     }
 };
