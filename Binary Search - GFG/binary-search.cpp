@@ -1,19 +1,18 @@
-// { Driver Code Starts
-//Initial template for C++
+//{ Driver Code Starts
+// Initial template for C++
 
 #include <bits/stdc++.h>
 using namespace std;
 
 
- // } Driver Code Ends
-//User function template for C++
+// } Driver Code Ends
+// User function template for C++
 
-class Solution{
-public:
-    int binarysearch(int arr[], int n, int k){
+class Solution {
+  public:
+    int binarysearch(int arr[], int n, int k) {
         // code here
-        int s=0;
-        int e=n;
+        int s=0,e=n-1;
         while(s<=e)
         {
             int mid=s+(e-s)/2;
@@ -34,25 +33,22 @@ public:
     }
 };
 
-// { Driver Code Starts.
-int main()
-{
+//{ Driver Code Starts.
+int main() {
     int t;
-    cin>>t;
+    cin >> t;
 
-    while(t--)
-    {
+    while (t--) {
         int N;
-        cin>>N;
+        cin >> N;
         int arr[N];
-        for(int i=0;i<N;i++)
-            cin>>arr[i];
+        for (int i = 0; i < N; i++) cin >> arr[i];
         int key;
-        cin>>key;
+        cin >> key;
         Solution ob;
-        int found = ob.binarysearch(arr,N,key);
-        cout<<found<<endl;
+        int found = ob.binarysearch(arr, N, key);
+        cout << found << endl;
     }
 }
 
-  // } Driver Code Ends
+// } Driver Code Ends
