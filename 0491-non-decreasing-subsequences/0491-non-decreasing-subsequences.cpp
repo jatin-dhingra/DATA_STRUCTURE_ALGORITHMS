@@ -5,7 +5,7 @@ public:
     {
         vector<int>ran=v;
         sort(ran.begin(),ran.end());
-        if(v==ran && v.size()>=2 && m.find(v)==m.end())
+        if(v==ran && v.size()>=2 && !m[v])
         {
             ans.push_back(v);
             m[v]=1;
