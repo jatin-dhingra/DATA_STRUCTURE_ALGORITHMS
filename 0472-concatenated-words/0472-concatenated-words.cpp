@@ -1,6 +1,6 @@
 class Solution {
 public:
-    map<string,int>st;
+    unordered_map<string,int>st;
     
     bool check(string word)
     {
