@@ -1,28 +1,15 @@
 class Solution {
 public:
-    int dp[46];
-    int solve(int ind)
+    int climbStairs(int n)
     {
-        if(ind==0)
+        int dp[n+1];
+        dp[0]=1;
+        dp[1]=1;
+        for(int i{2};i<=n;i++)
         {
-            return 1;
+            dp[i]=dp[i-2]+dp[i-1];
         }
-        if(ind==1)
-        {
-            return 1;
-        }
-        if(dp[ind]!=0)
-        {
-            return dp[ind];
-        }
-        int one=solve(ind-1);
-        int two=solve(ind-2);
-        return dp[ind]=one+two;
-    }
-    int climbStairs(int n) 
-    {
-        memset(dp,0,sizeof(dp));
-        return solve(n);
+        return dp[n];
         
     }
 };
