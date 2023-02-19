@@ -44,10 +44,13 @@ public:
             if(!roll)
             {
                 reverse(vec.begin(),vec.end());
-               
+                ans.push_back(vec);
+            }
+            else
+            {
+                ans.push_back(vec);
             }
             
-            ans.push_back(vec);
         
         }
         return ans;
