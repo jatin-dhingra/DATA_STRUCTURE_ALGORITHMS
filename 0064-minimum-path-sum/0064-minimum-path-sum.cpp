@@ -24,30 +24,33 @@ public:
     {
         int n=grid.size();
         int m=grid[0].size();
-        int dp[n][m];
+        
+        vector<int>prev(m,0);
         for(int i{};i<n;i++)
         {
+            vector<int>curr(m,0);
             for(int j{};j<m;j++)
             {
                 if(i==0 && j==0)
                 {
-                    dp[i][j]=grid[0][0];
+                    curr[j]=grid[0][0];
                 }
                 else if(i==0 && j>0)
                 {
-                    dp[i][j]=dp[i][j-1]+grid[i][j];
+                    curr[j]=curr[j-1]+grid[i][j];
                 }
                 else if(i>0 && j==0)
                 {
-                    dp[i][j]=dp[i-1][j]+grid[i][j];
+                    curr[j]=prev[j]+grid[i][j];
                 }
                 else
                 {
-                    dp[i][j]=min(dp[i-1][j],dp[i][j-1])+grid[i][j];
+                    curr[j]=min(prev[j],curr[j-1])+grid[i][j];
                 }
             }
+            prev=curr;
         }
-        return dp[n-1][m-1];
+        return prev[m-1];
         
     }
 };
