@@ -11,7 +11,7 @@ public:
         {
             if(2*nums[i]<=nums[j])
             {
-                count+=2;
+                count++;
                 i++;
                 j++;
             }
@@ -21,7 +21,7 @@ public:
             }
             
         }
-        return count;
+        return count*2;
         
         
     }
