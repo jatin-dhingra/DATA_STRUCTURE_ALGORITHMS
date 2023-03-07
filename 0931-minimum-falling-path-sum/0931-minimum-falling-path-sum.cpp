@@ -15,22 +15,22 @@ public:
         {
             return dp[i][j];
         }
+        int down=mat[i][j]+solve(mat,i+1,j);
         int left=mat[i][j]+solve(mat,i+1,j-1);
         int right=mat[i][j]+solve(mat,i+1,j+1);
-        int bottom=mat[i][j]+solve(mat,i+1,j);
-        return dp[i][j]=min({left,right,bottom});
+        return dp[i][j]=min({down,left,right});
     }
     int minFallingPathSum(vector<vector<int>>& mat) 
     {
-        
         int n=mat.size();
         int ans{INT_MAX};
         memset(dp,-1,sizeof(dp));
-        for(int i{};i<n;i++)
+        for(int j{};j<n;j++)
         {
-           ans= min(solve(mat,0,i),ans);  
+            ans=min(ans,solve(mat,0,j));
         }
         return ans;
+        
         
     }
 };
