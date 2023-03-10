@@ -26,7 +26,7 @@ public:
     int getRandom() 
     {
         int n=vec.size();
-        int r=rand()%n;
+        int r=(rand())%n;
         return vec[r];
         
     }
