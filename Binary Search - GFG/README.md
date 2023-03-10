@@ -4,22 +4,22 @@
 
 <p><span style="font-size:18px"><strong>Example 1:</strong></span></p>
 
-<pre style="position: relative;"><span style="font-size:18px"><strong>Input:</strong>
+<pre><span style="font-size:18px"><strong>Input:</strong>
 N = 5
 arr[] = {1 2 3 4 5} 
 K = 4
 <strong>Output:</strong> 3
-<strong>Explanation:</strong> 4 appears at index 3.</span><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+<strong>Explanation:</strong> 4 appears at index 3.</span></pre>
 
 <p><br>
 <span style="font-size:18px"><strong>Example 2:</strong></span></p>
 
-<pre style="position: relative;"><span style="font-size:18px"><strong>Input:</strong>
+<pre><span style="font-size:18px"><strong>Input:</strong>
 N = 5
 arr[] = {11 22 33 44 55} 
 K = 445
 <strong>Output:</strong> -1
-<strong>Explanation:</strong> 445 is not present.</span><div class="open_grepper_editor" title="Edit &amp; Save To Grepper"></div></pre>
+<strong>Explanation:</strong> 445 is not present.</span></pre>
 
 <p><br>
 <span style="font-size:18px"><strong>Your Task: &nbsp;</strong><br>
