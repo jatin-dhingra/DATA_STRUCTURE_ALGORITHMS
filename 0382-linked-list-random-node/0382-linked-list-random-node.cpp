@@ -11,7 +11,7 @@
 class Solution {
 public:
     vector<int>vec;
-    int s{-1};
+    
     Solution(ListNode* head)
     {
         ListNode* node=head;
