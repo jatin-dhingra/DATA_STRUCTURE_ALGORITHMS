@@ -39,6 +39,10 @@ public:
     TreeNode* sortedListToBST(ListNode* head) {
         int len{};
         node=head;
+        if(!head)
+        {
+            return NULL;
+        }
         while(node)
         {
             node=node->next;
