@@ -1,46 +1,40 @@
-// { Driver Code Starts
+//{ Driver Code Starts
 #include<bits/stdc++.h>
 using namespace std;
 
 
- // } Driver Code Ends
+// } Driver Code Ends
 class Solution
 {
     public:
+    //Function to return max value that can be put in knapsack of capacity W.
     int dp[1001][1001];
     int solve(int w, int wt[], int val[], int n)
     {
-        if(n==0 || w==0)
-       {
-           return 0;
-       }
-       if(dp[n][w]!=-1)
-       {
-           return dp[n][w];
-       }
-       
-       if(w>=wt[n-1])
-       {
-           return dp[n][w]=max(val[n-1]+solve(w-wt[n-1],wt,val,n-1),solve(w,wt,val,n-1));
-       }
-       else
-       {
-           return dp[n][w]=solve(w,wt,val,n-1);
-       }
+        if(w==0|| n==0)
+        {
+            return 0;
+        }
+        if(dp[w][n]!=-1)
+        {
+            return dp[w][n];
+        }
+        if(w>=wt[n-1])
+        {
+            return dp[w][n]=max(val[n-1]+solve(w-wt[n-1],wt,val,n-1),solve(w,wt,val,n-1));
+        }
+        return dp[w][n]=solve(w,wt,val,n-1);
     }
-    //Function to return max value that can be put in knapsack of capacity W.
-    int knapSack(int w, int wt[], int val[], int n) 
+    int knapSack(int W, int wt[], int val[], int n) 
     { 
        // Your code here
        memset(dp,-1,sizeof(dp));
-       int ans=solve(w,wt,val,n);
+       int ans=solve(W,wt,val,n);
        return ans;
-       
-       
     }
 };
 
-// { Driver Code Starts.
+//{ Driver Code Starts.
 
 int main()
  {
@@ -69,4 +63,5 @@ int main()
         
     }
 	return 0;
-}  // } Driver Code Ends
+}
+// } Driver Code Ends
