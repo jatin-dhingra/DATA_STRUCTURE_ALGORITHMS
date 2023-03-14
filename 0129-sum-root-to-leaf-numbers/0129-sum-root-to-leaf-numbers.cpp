@@ -11,11 +11,11 @@
  */
 class Solution {
 public:
-  
     int ans{};
     void dfs(TreeNode* node,int sum)
     {
-        if(!node){
+        if(!node)
+        {
             return;
         }
         sum*=10;
@@ -36,8 +36,6 @@ public:
             return 0;
         }
         dfs(root,0);
-    
         return ans;
-        
     }
 };
