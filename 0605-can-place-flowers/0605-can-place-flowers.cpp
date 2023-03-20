@@ -9,9 +9,7 @@ public:
            if(f[i-1] + f[i] + f[i+1]==0){
                n--;
                i++;
-           }
-           
-           
+           }   
         }
         return (n<=0);
         
