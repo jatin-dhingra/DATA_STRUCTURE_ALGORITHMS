@@ -10,7 +10,7 @@ public:
         {
             return false;
         }  
-        string key=s1+""+s2;
+        string key=s1+s2;
         if(mp.count(key))
         {
             return mp[key];
