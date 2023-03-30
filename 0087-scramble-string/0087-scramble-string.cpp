@@ -2,11 +2,11 @@ class Solution {
 public:
     unordered_map<string, int> mp;
     bool isScramble(string s1, string s2) {
-        if(s1 == s2)
+        if(s2==s1)
         {
             return true;
         }
-        if(s1.length() <= 1)
+        if(s1.size()<=1)
         {
             return false;
         }  
