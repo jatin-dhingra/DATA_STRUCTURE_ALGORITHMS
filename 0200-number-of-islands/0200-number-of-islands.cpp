@@ -1,10 +1,11 @@
 class Solution {
 public:
-    void dfs(vector<vector<char>>&grid,int x,int y)
+    
+    void dfs(vector<vector<char>>& grid,int x,int y)
     {
-        if(x<0 || y<0 || x>=grid.size() || y>=grid[0].size() || grid[x][y]=='0')
+        if(x<0 || x>=grid.size() || y<0 || y>=grid[0].size() || grid[x][y]=='0')
         {
-            return ;
+            return;
         }
         grid[x][y]='0';
         dfs(grid,x-1,y);
@@ -16,9 +17,7 @@ public:
     {
         int n=grid.size();
         int m=grid[0].size();
-        
         int count{};
-        
         for(int i{};i<n;i++)
         {
             for(int j{};j<m;j++)
