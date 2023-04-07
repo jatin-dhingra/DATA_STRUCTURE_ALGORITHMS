@@ -1,20 +1,20 @@
 class Solution {
 public:
-    
-    void dfs(vector<vector<char>>& grid,int x,int y)
+    void dfs(vector<vector<char>>&grid,int i,int j)
     {
-        if(x<0 || x>=grid.size() || y<0 || y>=grid[0].size() || grid[x][y]=='0')
+        if(i<0 || j<0 || i>=grid.size()|| j>=grid[0].size()|| grid[i][j]=='0')
         {
             return;
         }
-        grid[x][y]='0';
-        dfs(grid,x-1,y);
-        dfs(grid,x+1,y);
-        dfs(grid,x,y-1);
-        dfs(grid,x,y+1);
+        
+        grid[i][j]='0';
+        dfs(grid,i,j-1);
+        dfs(grid,i,j+1);
+        dfs(grid,i+1,j);
+        dfs(grid,i-1,j);
+       
     }
-    int numIslands(vector<vector<char>>& grid) 
-    {
+    int numIslands(vector<vector<char>>& grid) {
         int n=grid.size();
         int m=grid[0].size();
         int count{};
@@ -30,6 +30,6 @@ public:
             }
         }
         return count;
-        
     }
-};
+    
+}; 
