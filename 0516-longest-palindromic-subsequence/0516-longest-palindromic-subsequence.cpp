@@ -1,10 +1,9 @@
 class Solution {
 public:
-    int longestPalindromeSubseq(string s)
+    int longestPalindromeSubseq(string s) 
     {
         string t=s;
         reverse(t.begin(),t.end());
-        
         int n=s.size();
         int dp[n+1][n+1];
         for(int i{};i<n+1;i++)
