@@ -1,7 +1,7 @@
 class SmallestInfiniteSet {
 public:
     priority_queue<int,vector<int>,greater<int>>pq;
-    map<int,int>m;
+    unordered_map<int,int>m;
     SmallestInfiniteSet() {
         for(int i{1};i<=1000;i++)
         {
