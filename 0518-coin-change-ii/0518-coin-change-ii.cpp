@@ -29,8 +29,7 @@ public:
     int change(int a, vector<int>& c) 
     {
         int n=c.size();
-        int dp[n][a+1];
-        memset(dp,0,sizeof(dp));
+        vector<int>prev(a+1,0),curr(a+1,0);
         for(int i{};i<n;i++)
         {
             for(int j{};j<=a;j++)
@@ -39,24 +38,26 @@ public:
                 {
                     if(j%c[i]==0)
                     {
-                        dp[i][j]=1;
+                        prev[j]=1;
                     }
                 }
             }
         }
         for(int i{1};i<n;i++)
         {
+            // vector<int>curr(a+1,0);
             for(int j{};j<=a;j++)
             {
-                int notpick=dp[i-1][j];
+                int notpick=prev[j];
                 int pick=0;
                 if(j>=c[i])
                 {
-                    pick=dp[i][j-c[i]];
+                    pick=curr[j-c[i]];
                 }
-                dp[i][j]=pick+notpick;
+                curr[j]=pick+notpick;
             }
+            prev=curr;
         }
-        return dp[n-1][a];        
+        return prev[a];        
     }
 };
